@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maxxses | Interactive Flat Panels for Schools, Colleges and Offices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--navy:#16171B;--navy2:#22242B;--bg:#F6F6F7;--card:#fff;--ink:#16171B;--mute:#575B66;--line:#E1E2E6;--acc:#D12A41;--acc-ink:#fff;--teal:#FF5A70;--err:#C0262D;--ok:#0B7A56}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101114;--card:#1A1B20;--ink:#F1F2F4;--mute:#B0B3BC;--line:#2E3038;--acc:#FF6B80;--acc-ink:#16171B;--err:#FF8A8F;--ok:#4FD1A0}}
+:root[data-theme="dark"]{--bg:#101114;--card:#1A1B20;--ink:#F1F2F4;--mute:#B0B3BC;--line:#2E3038;--acc:#FF6B80;--acc-ink:#16171B;--err:#FF8A8F;--ok:#4FD1A0}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "Plus Jakarta Sans",system-ui,Segoe UI,Arial,sans-serif}
+img,svg{max-width:100%}a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800}h3{font-size:1.15rem}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 32px}
+.btn{display:inline-block;font:700 .95rem inherit;font-family:inherit;padding:13px 22px;border-radius:10px;border:2px solid transparent;background:var(--acc);color:var(--acc-ink);text-decoration:none;cursor:pointer;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+/* header */
+header{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff}
+.nav{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;text-decoration:none}
+.logo .brand{height:38px;width:auto;aspect-ratio:678/106;display:block}
+nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.92rem;color:#DDE0E6}nav a:hover{color:#fff}
+.menu{display:none;margin-left:auto;background:none;border:1px solid #5A5E69;color:#fff;border-radius:8px;padding:8px 12px;font:inherit}
+@media(max-width:960px){.menu{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:flex-start;padding:16px 20px 24px;margin:0}nav.open{display:flex}}
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:64px 0 88px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800}
+.hero p{color:#CFD2DA;font-size:1.1rem;max-width:52ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .btn{background:#D12A41;color:#fff}.hero .btn.ghost{background:transparent;color:#fff;border-color:#80848F}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding:0;list-style:none;color:#A5A9B4;font-size:.85rem}
+.chips li{border:1px solid #3A3D46;border-radius:99px;padding:4px 12px}
+.board{background:#08090B;border-radius:18px;padding:14px;box-shadow:0 30px 70px rgba(0,0,0,.5);transform:perspective(1200px) rotateY(-6deg)}
+.board svg{display:block;width:100%;border-radius:8px;background:#FAFAFB}
+.stand{height:10px;width:40%;margin:12px auto 0;background:#2A2D35;border-radius:0 0 12px 12px}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.board{transform:none}}
+.draw{stroke-dasharray:600;stroke-dashoffset:600;animation:d 3s .4s ease forwards}
+@keyframes d{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.draw{stroke-dashoffset:0}}
+/* grids */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.feat .ic{width:42px;height:42px;border-radius:10px;background:var(--navy);color:var(--teal);display:grid;place-items:center;margin-bottom:14px;font-size:1.2rem}
+.card p{color:var(--mute);margin:0}
+/* products */
+.prod{display:flex;flex-direction:column}
+.prod h3{font-size:2rem;font-weight:800;margin:0}
+.prod .tag{color:var(--acc);font-weight:700;font-size:.85rem}
+.prod dl{margin:16px 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.88rem}
+.prod dt{color:var(--mute)}.prod dd{margin:0;font-weight:500}
+.prod .acts{margin-top:auto;display:grid;gap:8px}
+.prod .btn{padding:10px 14px;font-size:.88rem;text-align:center}
+.prod.pick{border:2px solid var(--acc)}
+/* segments */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tabs button{font:600 .95rem inherit;font-family:inherit;padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.panel{background:var(--navy);color:#fff;border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.panel[hidden]{display:none}.panel li{margin:8px 0;color:#D2D5DC}.panel h3{font-size:1.5rem}
+@media(max-width:760px){.panel{grid-template-columns:1fr}}
+/* demo */
+#demo{background:var(--navy);color:#fff}
+#demo .lead{color:#BFC3CC}
+.banner{border:1px solid #3A3D46;background:var(--navy2);border-radius:14px;padding:20px 24px;margin-bottom:28px;font-size:1.15rem;font-weight:700}
+form{background:var(--card);color:var(--ink);border-radius:16px;padding:28px}
+.fg{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.fg{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:6px}.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.9rem}
+input,select,textarea{font:inherit;padding:11px 12px;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--err)}
+.err{color:var(--err);font-size:.82rem;min-height:1.1em}
+.ok-box{background:var(--card);color:var(--ink);border-radius:16px;padding:36px;text-align:center}
+.ok-box h3{color:var(--ok);font-size:1.6rem}
+/* contact / trust */
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+#contact form{border:1px solid var(--line)}
+.info p{margin:0 0 14px;color:var(--mute)}.info strong{color:var(--ink);display:block}
+.badges{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:32px}
+.badge{border-left:4px solid var(--teal);background:var(--card);padding:16px 18px;border-radius:0 12px 12px 0;font-weight:700}
+.badge span{display:block;font-weight:400;color:var(--mute);font-size:.88rem}
+.logos{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.logos span{flex:1 1 150px;text-align:center;padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--mute);font-weight:700}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+summary{padding:16px 20px;font-weight:700;cursor:pointer}
+details p{margin:0;padding:0 20px 18px;color:var(--mute)}
+footer{background:var(--navy);color:#BFC3CC;padding:48px 0 28px}
+footer .grid{margin-bottom:28px}footer a{display:block;text-decoration:none;margin:6px 0}footer a:hover{color:#fff}
+footer h3{color:#fff;font-size:1rem}.copy{border-top:1px solid #2E3139;padding-top:18px;font-size:.85rem}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="238 272 678 106"><defs>
+<g>
+<g id="glyph-0-0">
+<path d="M 6.9375 0 L 6.9375 -17.625 L 0.65625 -17.625 L 0.65625 -21.21875 L 17.484375 -21.21875 L 17.484375 -17.625 L 11.234375 -17.625 L 11.234375 0 Z M 6.9375 0 "/>
+</g>
+<g id="glyph-0-1">
+<path d="M 2.109375 0 L 2.109375 -21.21875 L 8.53125 -21.21875 L 12.359375 -6.75 L 16.09375 -21.21875 L 22.546875 -21.21875 L 22.546875 0 L 18.578125 0 L 18.578125 -16.703125 L 14.375 0 L 10.25 0 L 6.109375 -16.703125 L 6.078125 0 Z M 2.109375 0 "/>
+</g>
+</g>
+</defs>
+
+<path fill-rule="evenodd" fill="rgb(88.627625%, 19.607544%, 29.019165%)" fill-opacity="1" d="M 268.101562 337.675781 L 265.648438 342.582031 L 262.214844 330.558594 L 271.78125 330.804688 L 270.066406 334.730469 L 323.296875 374.960938 L 317.902344 355.582031 L 315.9375 335.710938 L 317.65625 315.105469 L 323.050781 294.007812 L 286.011719 321.484375 L 295.824219 330.558594 L 298.277344 326.390625 L 301.957031 338.164062 L 292.144531 338.164062 L 294.105469 333.503906 L 241.117188 293.765625 L 246.515625 315.597656 L 248.234375 336.449219 L 246.269531 356.316406 L 240.875 374.226562 L 279.140625 346.503906 Z M 268.101562 337.675781 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 402.777344 301.613281 L 414.550781 313.386719 L 414.550781 366.867188 L 395.910156 366.867188 L 395.910156 320.257812 L 391.246094 315.597656 L 381.925781 315.597656 L 381.925781 366.867188 L 363.28125 366.867188 L 363.28125 315.597656 L 353.960938 315.597656 L 349.300781 320.257812 L 349.300781 366.867188 L 330.65625 366.867188 L 330.65625 313.386719 L 342.1875 301.613281 Z M 402.777344 301.613281 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 423.875 315.597656 L 452.085938 301.613281 L 465.085938 301.613281 L 493.542969 315.597656 L 493.542969 366.867188 L 474.898438 366.867188 L 474.898438 345.769531 L 446.933594 345.769531 L 446.933594 332.03125 L 474.898438 332.03125 L 474.898438 323.9375 L 460.914062 316.578125 L 456.253906 316.578125 L 442.273438 323.9375 L 442.273438 366.867188 L 423.875 366.867188 Z M 423.875 315.597656 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 502.863281 366.867188 L 527.394531 334.484375 L 502.863281 301.613281 L 523.46875 301.613281 L 537.699219 320.746094 L 552.171875 301.613281 L 572.777344 301.613281 L 548.246094 334.484375 L 572.777344 366.867188 L 551.679688 366.867188 L 537.699219 348.222656 L 523.714844 366.867188 Z M 502.863281 366.867188 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 582.097656 366.867188 L 606.628906 334.484375 L 582.097656 301.613281 L 602.457031 301.613281 L 616.933594 320.746094 L 631.160156 301.613281 L 651.765625 301.613281 L 627.234375 334.484375 L 651.765625 366.867188 L 630.914062 366.867188 L 616.933594 348.222656 L 602.949219 366.867188 Z M 582.097656 366.867188 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 665.75 366.867188 L 661.085938 352.882812 L 707.695312 352.882812 L 712.359375 348.222656 L 712.359375 346.015625 L 707.695312 341.355469 L 672.617188 341.355469 L 661.085938 329.578125 L 661.085938 313.386719 L 672.617188 301.613281 L 726.339844 301.613281 L 731 315.597656 L 684.390625 315.597656 L 679.730469 320.257812 L 679.730469 322.710938 L 684.390625 327.371094 L 719.226562 327.371094 L 731 338.902344 L 731 355.335938 L 719.226562 366.867188 Z M 665.75 366.867188 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 809.988281 327.371094 L 809.988281 341.355469 L 758.964844 341.355469 L 758.964844 348.222656 L 763.382812 352.882812 L 809.988281 352.882812 L 805.328125 366.867188 L 751.851562 366.867188 L 740.324219 355.335938 L 740.324219 313.386719 L 751.851562 301.613281 L 805.328125 301.613281 L 809.988281 315.597656 L 763.382812 315.597656 L 758.964844 320.257812 L 758.964844 327.371094 Z M 809.988281 327.371094 "/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" d="M 823.972656 366.867188 L 819.3125 352.882812 L 865.921875 352.882812 L 870.582031 348.222656 L 870.582031 346.015625 L 865.921875 341.355469 L 831.085938 341.355469 L 819.3125 329.578125 L 819.3125 313.386719 L 831.085938 301.613281 L 884.5625 301.613281 L 889.226562 315.597656 L 842.617188 315.597656 L 837.957031 320.257812 L 837.957031 322.710938 L 842.617188 327.371094 L 877.449219 327.371094 L 889.226562 338.902344 L 889.226562 355.335938 L 877.449219 366.867188 Z M 823.972656 366.867188 "/>
+<g fill="#FFFFFF" fill-opacity="1">
+<use href="#glyph-0-0" x="872.628731" y="296.379692"/>
+<use href="#glyph-0-1" x="890.725501" y="296.379692"/>
+</g>
+
+</symbol></svg>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#top" aria-label="Maxxses home"><svg class="brand" role="img" aria-label="MAXXSES"><use href="#lg"/></svg></a>
+  <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav">
+   <a href="#products">Products</a><a href="#features">Features &amp; AI</a><a href="#segments">Target Segments</a><a href="#why">Why Us</a><a href="#faq">FAQs</a><a href="#contact">Contact</a>
+   <a class="btn" href="#demo" style="color:#fff;background:#D12A41">Book an In-Person Demo</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <h1>Transform Classrooms &amp; Boardrooms with Next-Gen Interactive Displays</h1>
+   <p>4K UHD clarity, built-in AI teaching tools, ultra-responsive touch and wireless collaboration, in one board that works the moment you switch it on.</p>
+   <div class="cta-row"><a class="btn" href="#demo">Book In-Person Demo</a><a class="btn ghost" href="#products">Explore Specifications</a></div>
+   <ul class="chips"><li>4K UHD</li><li>EduAI</li><li>40-point touch</li><li>Android + Windows</li></ul>
+  </div>
+  <div>
+   <div class="board" role="img" aria-label="Interactive board showing a handwritten equation, a 3D cube and an AI lesson recap">
+    <svg viewBox="0 0 600 360">
+     <rect x="0" y="0" width="600" height="30" fill="#ECEDEF"/><circle cx="16" cy="15" r="5" fill="#D12A41"/><circle cx="34" cy="15" r="5" fill="#FF5A70"/><circle cx="52" cy="15" r="5" fill="#F5A524"/>
+     <path class="draw" d="M40 90c20-30 40 30 60 0s40 20 60-10M190 80h60m-60 24h60M270 70v50m60-45c20 0 20 25 0 30s-20 25 0 30" stroke="#16171B" stroke-width="5" fill="none" stroke-linecap="round"/>
+     <text x="40" y="170" font-size="22" font-weight="700" fill="#D12A41">x² + 5x + 6 = 0</text>
+     <text x="40" y="200" font-size="16" fill="#575B66">(x + 2)(x + 3) = 0 → x = −2, −3</text>
+     <g transform="translate(400 70)" stroke="#D12A41" stroke-width="3" fill="rgba(226,50,73,.14)"><path d="M0 30l50-20 50 20v60l-50 20-50-20z"/><path d="M0 30l50 20 50-20M50 50v60"/></g>
+     <rect x="40" y="235" width="520" height="95" rx="12" fill="#16171B"/>
+     <text x="60" y="265" font-size="14" font-weight="700" fill="#FF5A70">EduAI lesson recap</text>
+     <text x="60" y="292" font-size="14" fill="#CFD2DA">Solved by factoring. Roots found: −2 and −3.</text>
+     <text x="60" y="314" font-size="14" fill="#CFD2DA">Suggested next: graph the parabola.</text>
+    </svg>
+   </div><div class="stand"></div>
+  </div>
+ </div>
+</div>
+
+<section id="features"><div class="wrap">
+ <h2>Built for teaching, meetings and everything between</h2>
+ <p class="lead">Every board ships with the hardware and software a room needs. No extra boxes, no extra licences.</p>
+ <div class="grid feat" id="featGrid"></div>
+</div></section>
+
+<section id="products" style="background:var(--card)"><div class="wrap">
+ <h2>Choose the size that fits your room</h2>
+ <p class="lead">Same software and build quality across the range. Pick by room size and seating distance, or ask us to test a size in your space.</p>
+ <div class="grid" id="prodGrid"></div>
+</div></section>
+
+<section id="segments"><div class="wrap">
+ <h2>Made for how your people work</h2>
+ <div class="tabs" role="tablist" aria-label="Audience segments"></div>
+ <div id="segPanels"></div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+ <h2>Book an in-person demo</h2>
+ <div class="banner">Experience the board live at your campus or office. We bring the demo directly to you.</div>
+ <div id="demoWrap">
+ <form id="demoForm" novalidate aria-label="Book an in-person demo">
+  <div class="fg">
+   <div class="f"><label for="d-name">Full name</label><input id="d-name" name="name" autocomplete="name" required><span class="err"></span></div>
+   <div class="f"><label for="d-role">Designation</label><select id="d-role" name="role" required><option value="">Select</option><option>Teacher</option><option>Principal</option><option>IT Admin</option><option>Director</option><option>Procurement</option><option>Other</option></select><span class="err"></span></div>
+   <div class="f full"><label for="d-org">Institute / company name</label><input id="d-org" name="org" autocomplete="organization" required><span class="err"></span></div>
+   <div class="f"><label for="d-email">Official email address</label><input id="d-email" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+   <div class="f"><label for="d-phone">Phone number</label><input id="d-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number" required><span class="err"></span></div>
+   <div class="f"><label for="d-city">City</label><input id="d-city" name="city" autocomplete="address-level2" required><span class="err"></span></div>
+   <div class="f"><label for="d-state">State</label><input id="d-state" name="state" autocomplete="address-level1" required><span class="err"></span></div>
+   <div class="f"><label for="d-pin">PIN code</label><input id="d-pin" name="pin" inputmode="numeric" autocomplete="postal-code" placeholder="6 digits" required><span class="err"></span></div>
+   <div class="f"><label for="d-size">Board size of interest</label><select id="d-size" name="size" required><option value="">Select</option><option>65"</option><option>75"</option><option>86"</option><option>98"</option><option>Not sure</option></select><span class="err"></span></div>
+   <div class="f"><label for="d-units">Classrooms / units required</label><input id="d-units" name="units" type="number" min="1" max="10000" required><span class="err"></span></div>
+   <div class="f"><label for="d-date">Preferred visit date</label><input id="d-date" name="date" type="date" required><span class="err"></span></div>
+   <div class="f full"><label for="d-slot">Preferred time slot</label><select id="d-slot" name="slot" required><option value="">Select</option><option>Morning (9 am – 12 pm)</option><option>Afternoon (12 pm – 3 pm)</option><option>Late afternoon (3 pm – 6 pm)</option></select><span class="err"></span></div>
+  </div>
+  <p style="margin:18px 0 0"><button class="btn" type="submit">Book my demo</button></p>
+ </form></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+ <h2>Why institutions choose us</h2>
+ <div class="badges">
+  <div class="badge">3-Year On-Site Warranty<span>Panel, touch frame and mainboard covered.</span></div>
+  <div class="badge">Pan-India Installation Support<span>Certified engineers across regions.</span></div>
+  <div class="badge">Free Teacher Training<span>On-site sessions plus video library.</span></div>
+ </div>
+ <h3>Trusted by schools, colleges and companies</h3>
+ <div class="logos" aria-label="Client logos (placeholders)"><span>School logo</span><span>College logo</span><span>University logo</span><span>Corporate logo</span><span>Coaching logo</span></div>
+ <h2 id="faq" style="margin-top:20px">Frequently asked questions</h2>
+ <div id="faqList"></div>
+</div></section>
+
+<section id="contact" style="background:var(--card)"><div class="wrap two">
+ <div>
+  <h2>Send us a question</h2>
+  <p class="lead">For pricing, partnerships or after-sales help. For a demo visit, use the booking form above.</p>
+  <div id="qWrap"><form id="qForm" novalidate aria-label="General inquiry">
+   <div class="fg">
+    <div class="f"><label for="q-name">Full name</label><input id="q-name" name="name" required><span class="err"></span></div>
+    <div class="f"><label for="q-type">Inquiry type</label><select id="q-type" name="type" required><option value="">Select</option><option>Pricing inquiry</option><option>Distributorship / Partnership</option><option>After-sales support</option></select><span class="err"></span></div>
+    <div class="f"><label for="q-email">Email address</label><input id="q-email" name="email" type="email" required><span class="err"></span></div>
+    <div class="f"><label for="q-phone">Phone number</label><input id="q-phone" name="phone" type="tel" inputmode="numeric" required><span class="err"></span></div>
+    <div class="f full"><label for="q-msg">Message</label><textarea id="q-msg" name="msg" rows="4" required></textarea><span class="err"></span></div>
+   </div>
+   <p style="margin:18px 0 0"><button class="btn" type="submit">Send inquiry</button></p>
+  </form></div>
+ </div>
+ <aside class="card info">
+  <h3>Talk to us</h3>
+  <p><strong>Phone</strong>+91 00000 00000</p>
+  <p><strong>Sales email</strong>sales@example.com</p>
+  <p><strong>Corporate office</strong>Replace with your registered office address</p>
+  <p><strong>Working hours</strong>Mon – Sat, 9:30 am – 6:30 pm IST</p>
+ </aside>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div class="grid">
+  <div><a class="logo" href="#top" aria-label="Maxxses home"><svg class="brand" role="img" aria-label="MAXXSES"><use href="#lg"/></svg></a>
+   <p>We design and build interactive flat panels for K-12 schools, universities and enterprise meeting rooms, with installation, training and support included.</p></div>
+  <div><h3>Explore</h3><a href="#products">Products</a><a href="#features">Features &amp; AI</a><a href="#segments">Target Segments</a><a href="#faq">FAQs</a></div>
+  <div><h3>Legal</h3><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+  <div><h3>Demo hotline</h3><a href="tel:+910000000000">+91 00000 00000</a><a href="#demo">Book an in-person demo</a></div>
+ </div>
+ <div class="copy">&copy; <span id="yr">2026</span> Maxxses. All rights reserved.</div>
+</div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+// nav
+const mb=$('.menu'),nv=$('#nav');
+mb.onclick=()=>{const o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+$$('#nav a').forEach(a=>a.onclick=()=>{nv.classList.remove('open');mb.setAttribute('aria-expanded',false)});
+// features
+const F=[["▣","4K Ultra HD anti-glare display","Zero-bonding glass removes the air gap, so ink sits right under the pen tip and stays readable in bright rooms."],
+["✎","Multi-touch writing","20 to 40 touch points with a natural stylus feel. Several students can write at once."],
+["✦","EduAI & Smart Whiteboard","Solve handwritten maths with the OCR solver, drop in 3D shapes and get automatic lesson recaps."],
+["⚙","Android & Windows dual OS","Google EDLA-certified Android with secure updates, plus an optional Windows module."],
+["◉","4K AI camera & mic array","Auto-framing camera and multi-array microphones for hybrid classes and meetings."],
+["⇄","Wireless screen sharing","Cast from laptops, tablets and phones without cables or extra dongles."]];
+$('#featGrid').innerHTML=F.map(f=>`<article class="card"><div class="ic" aria-hidden="true">${f[0]}</div><h3>${f[1]}</h3><p>${f[2]}</p></article>`).join('');
+// products
+const P=[["65\"","Small classrooms, huddle rooms","4 GB / 32 GB","Up to 20","Wall mount"],["75\"","Standard classrooms","8 GB / 128 GB","Up to 30","Wall or mobile stand"],["86\"","Large classrooms, boardrooms","8 GB / 128 GB","Up to 40","Wall or mobile stand"],["98\"","Halls, labs, large conference rooms","8 GB / 256 GB","Up to 40","Wall mount"]];
+$('#prodGrid').innerHTML=P.map((p,i)=>`<article class="card prod${i==1?' pick':''}"><span class="tag">${p[1]}</span><h3>${p[0]}</h3>
+<dl><dt>Resolution</dt><dd>4K UHD (3840×2160)</dd><dt>RAM / ROM</dt><dd>${p[2]}</dd><dt>Touch points</dt><dd>${p[3]}</dd><dt>OS</dt><dd>Android 13 · Windows optional</dd><dt>Ports</dt><dd>HDMI, USB-C, USB 3.0, LAN, OPS slot</dd><dt>Mounting</dt><dd>${p[4]}</dd></dl>
+<div class="acts"><button class="btn" data-q="${p[0]}">Request quote</button><button class="btn ghost" style="color:var(--ink)" data-t="${p[0]}">Test this size in person</button></div></article>`).join('');
+$$('[data-q]').forEach(b=>b.onclick=()=>{$('#q-type').value='Pricing inquiry';$('#q-msg').value=`Please send a quote for the ${b.dataset.q} board.`;$('#contact').scrollIntoView();$('#q-name').focus({preventScroll:true})});
+$$('[data-t]').forEach(b=>b.onclick=()=>{$('#d-size').value=b.dataset.t;$('#demo').scrollIntoView();$('#d-name').focus({preventScroll:true})});
+// segments
+const S=[["K-12 Schools","Lessons that keep children engaged","Gamified learning with built-in quizzes and activities|Child-safe OS with app lock and content controls|Eye-care mode and anti-glare glass for long school days"],
+["Universities & Coaching","Lectures that students can revisit","One-tap lecture recording with audio and ink|Split-screen annotation over slides, PDFs and video|Cloud save and share notes to students after class"],
+["Corporate Boardrooms","Meetings that start on time","Video conferencing with 4K AI camera and mic array|Seamless wireless casting from any device|Digital whiteboard with notes exported as PDF"]];
+const tl=$('.tabs');
+tl.innerHTML=S.map((s,i)=>`<button role="tab" id="t${i}" aria-controls="p${i}" aria-selected="${i==0}" tabindex="${i?-1:0}">${s[0]}</button>`).join('');
+$('#segPanels').innerHTML=S.map((s,i)=>`<div class="panel" role="tabpanel" id="p${i}" aria-labelledby="t${i}" ${i?'hidden':''}><div><h3>${s[1]}</h3><a class="btn" href="#demo">Book a demo for ${s[0]}</a></div><ul>${s[2].split('|').map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+const tabs=$$('[role=tab]');
+function sel(i){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',i==j);t.tabIndex=i==j?0:-1;$('#p'+j).hidden=i!=j});tabs[i].focus()}
+tabs.forEach((t,i)=>{t.onclick=()=>sel(i);t.onkeydown=e=>{if(e.key=='ArrowRight')sel((i+1)%3);if(e.key=='ArrowLeft')sel((i+2)%3)}});
+// faq
+const Q=[["What does the warranty cover?","The 3-year on-site warranty covers the panel, touch frame and mainboard. An engineer visits your site, so you don't ship boards back."],
+["How is the board installed?","Our engineers handle wall or stand mounting, cabling, network setup and a handover session. Most rooms take under two hours."],
+["How are software updates delivered?","Updates, including security patches, arrive over the air on the Google EDLA-certified Android system. IT admins can schedule them out of school hours."],
+["Is teacher training included?","Yes. Every order includes free on-site training for teachers or staff, plus access to a video library for new joiners."]];
+$('#faqList').innerHTML=Q.map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
+// forms
+const d=$('#d-date');const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+const rules={email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||'Enter a valid email, for example name@school.edu',
+phone:v=>/^(\+91[\s-]?)?[6-9]\d{9}$/.test(v.replace(/[\s-]/g,'').replace(/^(\+91)/,'$1'))||'Enter a 10-digit Indian mobile number starting with 6 to 9',
+pin:v=>/^[1-9]\d{5}$/.test(v)||'Enter a 6-digit PIN code',
+units:v=>(+v>=1)||'Enter at least 1 unit'};
+function check(el){let v=el.value.trim(),m=!v?'This field is required':(rules[el.name]&&rules[el.name](v));if(m===true)m='';
+ el.setAttribute('aria-invalid',!!m);el.nextElementSibling.textContent=m;
+ if(m)el.setAttribute('aria-describedby',el.id+'-e');el.nextElementSibling.id=el.id+'-e';return !m}
+function wire(form,done){
+ $$('input,select,textarea',form).forEach(el=>{el.addEventListener('blur',()=>check(el));el.addEventListener('input',()=>el.getAttribute('aria-invalid')=='true'&&check(el))});
+ form.onsubmit=e=>{e.preventDefault();const bad=$$('input,select,textarea',form).filter(el=>!check(el));
+  if(bad.length){bad[0].focus();return}done(Object.fromEntries(new FormData(form)))}}
+function confirmBox(wrap,title,msg,subject,body){
+ wrap.innerHTML=`<div class="ok-box" role="status" tabindex="-1"><h3>${title}</h3><p>${msg}</p><p><a class="btn" href="mailto:sales@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}">Email a copy to our team</a></p></div>`;
+ wrap.firstChild.focus();wrap.scrollIntoView({block:'center'})}
+const line=o=>Object.entries(o).map(([k,v])=>k+': '+v).join('\n');
+wire($('#demoForm'),o=>{
+ // Email notification hook: POST `o` to your backend / form service here.
+ confirmBox($('#demoWrap'),'Demo request received',`Thank you, ${o.name}. We'll confirm your visit to ${o.org} on ${o.date} (${o.slot}) by email and phone within one working day.`,'Demo booking: '+o.org,line(o))});
+wire($('#qForm'),o=>confirmBox($('#qWrap'),'Message sent',`Thanks, ${o.name}. Our team will reply to ${o.email} within one working day.`,o.type+': '+o.name,line(o)));
+</script>
+</body>
+</html>
